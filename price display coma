@@ -1,0 +1,23 @@
+<script type="text/javascript">
+		
+
+const monerizeString = () => {
+		var prcParentNode = document.getElementsByClassName('fare-types__fare__price fare-types__fare__price--primary');
+		for (var i = 0; i < prcParentNode.length; i++) {
+			var childNodes = prcParentNode[i].getElementsByTagName('span');
+		    if (childNodes[1].className == "") {
+		      	var n = parseFloat(childNodes[1].innerText);
+		      	prcParentNode[i].getElementsByTagName('span')[1].innerText = n.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+		      	childNodes[1].classList.add('done-with-monerize');
+		    }        
+		};
+	};
+
+	document.getElementsByTagName('body')[0].onscroll = () => {
+	    console.log("scrolling");
+	    monerizeString();
+	};
+	
+
+		
+	</script>
